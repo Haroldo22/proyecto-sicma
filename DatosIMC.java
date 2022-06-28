@@ -25,9 +25,9 @@ public class DatosIMC extends JFrame {
 		FondoPanel fondo = new FondoPanel();
 		float peso, altura,alturacm, muslo, muñeca, brazo, antebrazo, pantorrilla, cintura, cadera, biceps,triceps, subescular, suprailico, estatura;
 		int edad;
-		float IMC,A, PesoRecomendado,PesoIdealPorBrocca, ComplexionFisica, AMB, PesoRelativo, PesoSaludable, cincoporcientoDelPesoRecomendado,TotalDeGrasa, ICC, SumatoriaDeCuatroPliegues, PorDeMasOMenos, KgDeGrasaDeMasOMenos, MasaMagra;
+		float IMC,PesoSaludableMax, PesoRecomendado,PesoIdealPorBrocca, ComplexionFisica, AreaMuscularBrazo, PesoRelativo, PesoSaludableMin, cincoporcientoDelPesoRecomendado,TotalDeGrasa, IndiceCinturaCadera, SumatoriaDeCuatroPliegues, PorDeMasOMenos, KgDeGrasaDeMasOMenos, MasaMagra;
 		//variables redondeadas
-		float IMC1,A1, PesoRecomendado1,PesoIdealPorBrocca1, ComplexionFisica1, AMB1,ICC1, PesoRelativo1, PesoSaludable1, cincoporcientoDelPesoRecomendado1, SumatoriaDeCuatroPliegues1;
+		float IMC1,PesoSaludableMax1, PesoRecomendado1,PesoIdealPorBrocca1, ComplexionFisica1, AreaMuscularBrazo1,IndiceCinturaCadera1, PesoRelativo1, PesoSaludableMin1, cincoporcientoDelPesoRecomendado1, SumatoriaDeCuatroPliegues1;
 		String t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t51, t15, edad1;
 		
 	    public static JTextField CajaEdad;
@@ -310,16 +310,16 @@ public class DatosIMC extends JFrame {
 				t2 = String.valueOf(PesoRecomendado1);
 				t3 = String.valueOf(ComplexionFisica1);
 				t4 = String.valueOf(PesoRelativo1);
-				t5 = String.valueOf(PesoSaludable1);
-				t51 = String.valueOf(A1);
+				t5 = String.valueOf(PesoSaludableMin1);
+				t51 = String.valueOf(PesoSaludableMax1);
 				t6 = String.valueOf(cincoporcientoDelPesoRecomendado1);
 				t7 = String.valueOf(TotalDeGrasa);
-				t8 = String.valueOf(ICC1);
+				t8 = String.valueOf(IndiceCinturaCadera1);
 				t9 = String.valueOf(SumatoriaDeCuatroPliegues1);
 				t10 = String.valueOf(PorDeMasOMenos);
 				t11 = String.valueOf(KgDeGrasaDeMasOMenos);
 				t12 = String.valueOf(MasaMagra);
-				t13 = String.valueOf(AMB1);
+				t13 = String.valueOf(AreaMuscularBrazo1);
 				t14 = String.valueOf(PesoIdealPorBrocca1);
 				edad1 = String.valueOf(edad);
 				JOptionPane.showMessageDialog(null, "Tu FOLIO es: " + crearFolio(), "Registro exitoso", JOptionPane.INFORMATION_MESSAGE);
@@ -352,15 +352,15 @@ public class DatosIMC extends JFrame {
 			//Clase de herencia para JButton
 			private void operaciones() {
 				
-				ICC = cintura/cadera;
-				ICC1 = Math.round(ICC);
+				IndiceCinturaCadera = cintura/cadera;
+				IndiceCinturaCadera1 = Math.round(IndiceCinturaCadera);
 				SumatoriaDeCuatroPliegues = biceps+triceps+subescular+suprailico;
 				SumatoriaDeCuatroPliegues1 = Math.round(SumatoriaDeCuatroPliegues);
 				PorDeMasOMenos = 18*peso/100;
 				KgDeGrasaDeMasOMenos = peso*PorDeMasOMenos/100;
 				MasaMagra = (float) (peso-11.868);
-				AMB = (float) ((brazo-(3.1416*triceps))*((brazo-(3.1416*triceps)))/(3.1416*4));
-				AMB1 = Math.round(AMB);
+				AreaMuscularBrazo = (float) ((brazo-(3.1416*triceps))*((brazo-(3.1416*triceps)))/(3.1416*4));
+				AreaMuscularBrazo1 = Math.round(AreaMuscularBrazo);
 				PesoIdealPorBrocca = altura-100;
 				PesoIdealPorBrocca1 = Math.round(PesoIdealPorBrocca);
 				TotalDeGrasa = (float) ((12.9*peso)/100);
@@ -374,10 +374,10 @@ public class DatosIMC extends JFrame {
 				PesoRelativo1 = Math.round(PesoRelativo);
 				cincoporcientoDelPesoRecomendado = (float)(PesoRecomendado*0.05);
 				cincoporcientoDelPesoRecomendado1 = Math.round(cincoporcientoDelPesoRecomendado);
-				PesoSaludable = PesoRecomendado - cincoporcientoDelPesoRecomendado;
-				PesoSaludable1 = Math.round(PesoSaludable);
-				A = (PesoRecomendado) + (cincoporcientoDelPesoRecomendado);
-				A1 =Math.round(A);
+				PesoSaludableMin = PesoRecomendado - cincoporcientoDelPesoRecomendado;
+				PesoSaludableMin1 = Math.round(PesoSaludableMin);
+				PesoSaludableMax = (PesoRecomendado) + (cincoporcientoDelPesoRecomendado);
+				PesoSaludableMax1 =Math.round(PesoSaludableMax);
 				
 			}
 			private void cambioVariables() {
