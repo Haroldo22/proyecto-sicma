@@ -58,8 +58,8 @@ public class seleccion extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				DatosIMC DT = new DatosIMC();
-				DT.setVisible(true);
+				ingresoPaciente iP = new ingresoPaciente();
+				iP.setVisible(true);
 				dispose();
 				
 			}

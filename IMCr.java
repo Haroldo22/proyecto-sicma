@@ -1,4 +1,3 @@
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.ImageIcon;
@@ -8,7 +7,6 @@ import javax.swing.border.EmptyBorder;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.Font;
@@ -76,7 +74,7 @@ public class IMCr extends JFrame {
 		contentPane = new FondoPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		getContentPane().setLayout(null);
 		
 		JLabel lbl1 = new JLabel("IMC");
 		lbl1.setFont(new Font("Tahoma", Font.BOLD, 15));

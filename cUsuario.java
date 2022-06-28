@@ -52,7 +52,7 @@ public class cUsuario extends JFrame {
 		ImageIcon ico =  new ImageIcon(getClass().getResource("/Images/inicio.png"));
 		
 		JLabel lblNewLabel_1 = new JLabel("Inice sesión con usuario maestro");
-		lblNewLabel_1.setBounds(95, 47, 190, 28);
+		lblNewLabel_1.setBounds(241, 28, 309, 63);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Usuario");

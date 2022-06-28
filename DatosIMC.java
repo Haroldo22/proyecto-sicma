@@ -322,7 +322,7 @@ public class DatosIMC extends JFrame {
 				t13 = String.valueOf(AMB1);
 				t14 = String.valueOf(PesoIdealPorBrocca1);
 				edad1 = String.valueOf(edad);
-				JOptionPane.showMessageDialog(null, "Tu ID es: " + crearID(), "Registro exitoso", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Tu FOLIO es: " + crearFolio(), "Registro exitoso", JOptionPane.INFORMATION_MESSAGE);
 				//Abrir la ventana y cerra la actual 
 				new IMCr().setVisible(true);
 				dispose();
@@ -422,13 +422,13 @@ public class DatosIMC extends JFrame {
 		contentPane.add(AM);
 		AM.setColumns(10);
 		}
-	public static String crearID() {
+	public static String crearFolio() {
 
 		int numero = (int)(Math.random()*99999+10000);
 		
-		String ID = numero+"";
+		String folio = numero+"";
 		
-		return ID;
+		return folio;
 		
 		}
 }
