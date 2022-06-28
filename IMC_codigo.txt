@@ -1,0 +1,486 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.awt.Graphics;
+import java.awt.Image;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import java.awt.Color;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.util.Arrays;
+import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
+import java.awt.Toolkit;
+
+public class calculadora extends JFrame {
+	
+	FondoPanel fondo = new FondoPanel();
+	float peso, altura,alturacm, muslo, muñeca, brazo, antebrazo, pantorrilla, cintura, cadera, biceps,triceps, subescular, suprailico, estatura;
+	int edad;
+	float IMC,A, PesoRecomendado,PesoIdealPorBrocca, ComplexionFisica, AMB, PesoRelativo, PesoSaludable, cincoporcientoDelPesoRecomendado,TotalDeGrasa, ICC, SumatoriaDeCuatroPliegues, PorDeMasOMenos, KgDeGrasaDeMasOMenos, MasaMagra;
+	
+	private JPanel contentPane;
+	private JTextField CajaGenero;
+	private JTextField CajaNombre;
+	private JTextField CajaEdad;
+	private JTextField CajaPeso;
+	private JTextField CajaAltura;
+	private JTextField CajaMuñeca;
+	private JTextField CajaBrazo;
+	private JTextField CajaAntebrazo;
+	private JTextField CajaMuslo;
+	private JTextField CajaPantorrilla;
+	private JTextField CajaCintura;
+	private JTextField CajaCadera;
+	private JTextField CajaBiceps;
+	private JTextField CajaTriceps;
+	private JTextField CajaSubescular;
+	private JTextField CajaSuprailico;
+	private JTextField t1;
+	private JTextField t2;
+	private JTextField t3;
+	private JTextField t4;
+	private JTextField t5;
+	private JTextField t7;
+	private JTextField t8;
+	private JTextField t9;
+	private JTextField t10;
+	private JTextField t11;
+	private JTextField t12;
+	private JTextField t13;
+	private JTextField Cajacm;
+	private JTextField t6;
+	private JLabel lblNewLabel;
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_2;
+	private JLabel lblNewLabel_3;
+	private JLabel lblNewLabel_4;
+	private JLabel lblNewLabel_5;
+	private JTextField t51;
+	private JLabel lblNewLabel_6;
+	private JLabel lblNewLabel_7;
+	private JLabel lblNewLabel_11;
+	private JLabel lblNewLabel_12;
+	private JLabel lblNewLabel_13;
+	private JTextField t14;
+
+
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					calculadora frame = new calculadora();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	class FondoPanel extends JPanel {
+		private Image imagen;
+		public void paint (Graphics g) {
+			imagen = new ImageIcon(getClass().getResource("/imagenes/OIP (4).jpg")).getImage();
+			g.drawImage(imagen, 0,0, getWidth(), getHeight(),this);
+			setOpaque(false);
+			super.paint(g);
+		}
+		
+	}
+	public calculadora() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 800, 500);
+		contentPane = new   JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblLabel = new JLabel("Calculadora de IMC");
+		lblLabel.setBounds(324, 0, 122, 14);
+		contentPane.add(lblLabel);
+		
+		JLabel lblNombre = new JLabel("NOMBRE");
+		lblNombre.setBounds(10, 14, 98, 14);
+		contentPane.add(lblNombre);
+		
+		CajaGenero = new JTextField();
+		CajaGenero.setBounds(118, 42, 181, 20);
+		contentPane.add(CajaGenero);
+		CajaGenero.setColumns(10);
+		
+		JLabel lblGenero = new JLabel("GENERO");
+		lblGenero.setBounds(10, 39, 54, 14);
+		contentPane.add(lblGenero);
+		
+		CajaNombre = new JTextField();
+		CajaNombre.setBounds(118, 11, 181, 20);
+		contentPane.add(CajaNombre);
+		CajaNombre.setColumns(10);
+		
+		JLabel lblEdad = new JLabel("EDAD");
+		lblEdad.setBounds(10, 72, 46, 14);
+		contentPane.add(lblEdad);
+		
+		CajaEdad = new JTextField();
+		CajaEdad.setBounds(118, 69, 46, 20);
+		contentPane.add(CajaEdad);
+		CajaEdad.setColumns(10);
+		
+		JLabel lblPeso = new JLabel("PESO");
+		lblPeso.setBounds(10, 318, 46, 14);
+		contentPane.add(lblPeso);
+		
+		CajaPeso = new JTextField();
+		CajaPeso.setBounds(118, 315, 46, 20);
+		contentPane.add(CajaPeso);
+		CajaPeso.setColumns(10);
+		
+		JLabel lblAltura = new JLabel("ALTURA");
+		lblAltura.setBounds(10, 112, 98, 14);
+		contentPane.add(lblAltura);
+		
+		CajaAltura = new JTextField();
+		CajaAltura.setBounds(118, 94, 46, 20);
+		contentPane.add(CajaAltura);
+		CajaAltura.setColumns(10);
+		
+		JButton btnEnter = new JButton("CALCULAR");
+		btnEnter.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			//Pasar String a integer
+				
+			cambioVariables();
+
+			//Operaciones matematicas 
+			
+			operaciones();
+			
+			//Mostrar datos
+			
+			t1.setText(String.valueOf(IMC));
+			t2.setText(String.valueOf(PesoRecomendado));
+			t3.setText(String.valueOf(ComplexionFisica));
+			t4.setText(String.valueOf(PesoRelativo));
+			t5.setText(String.valueOf(PesoSaludable));
+			t51.setText(String.valueOf(A));
+			t6.setText(String.valueOf(cincoporcientoDelPesoRecomendado));
+			t7.setText(String.valueOf(TotalDeGrasa));
+			t8.setText(String.valueOf(ICC));
+			t9.setText(String.valueOf(SumatoriaDeCuatroPliegues));
+			t10.setText(String.valueOf(PorDeMasOMenos));
+			t11.setText(String.valueOf(KgDeGrasaDeMasOMenos));
+			t12.setText(String.valueOf(MasaMagra));
+			t13.setText(String.valueOf(AMB));
+			t14.setText(String.valueOf(PesoIdealPorBrocca));
+			
+			}
+
+			private void operaciones() {
+				IMC = peso/(altura*altura);
+				PesoRecomendado = altura*altura*24;
+				ComplexionFisica =alturacm/muñeca;
+				PesoRelativo = peso/PesoRecomendado*100;
+				cincoporcientoDelPesoRecomendado = (float)(PesoRecomendado*0.05);
+				PesoSaludable = PesoRecomendado - cincoporcientoDelPesoRecomendado;
+				A = (PesoRecomendado) + (cincoporcientoDelPesoRecomendado);
+				ICC = cintura/cadera;
+				SumatoriaDeCuatroPliegues = biceps+triceps+subescular+suprailico;
+				PorDeMasOMenos = 18*peso/100;
+				KgDeGrasaDeMasOMenos = peso*PorDeMasOMenos/100;
+				MasaMagra = (float) (peso-11.868);
+				AMB = (float) ((brazo-(3.1416*triceps))*((brazo-(3.1416*triceps)))/(3.1416*4));
+				PesoIdealPorBrocca = alturacm-100;
+				TotalDeGrasa = (float) ((12.9*peso)/100);
+			}
+			private void cambioVariables() {
+				altura = Float.parseFloat(CajaAltura.getText());
+				peso = Float.parseFloat(CajaPeso.getText());
+				muslo = Float.parseFloat(CajaMuslo.getText());
+				muñeca = Float.parseFloat(CajaMuñeca.getText());
+				brazo = Float.parseFloat(CajaBrazo.getText());
+				antebrazo = Float.parseFloat(CajaAntebrazo.getText());
+				altura = Float.parseFloat(CajaAltura.getText());
+				alturacm = Float.parseFloat(Cajacm.getText());
+				pantorrilla= Float.parseFloat(CajaPantorrilla.getText());
+				cintura = Float.parseFloat(CajaCintura.getText());
+				cadera = Float.parseFloat(CajaCadera.getText());
+				biceps = Float.parseFloat(CajaBiceps.getText());
+				triceps = Float.parseFloat(CajaTriceps.getText());
+				subescular = Float.parseFloat(CajaSubescular.getText());
+				suprailico = Float.parseFloat(CajaSuprailico.getText());
+				edad = Integer.parseInt(CajaEdad.getText());
+				
+			}
+		});
+		btnEnter.setBounds(278, 376, 130, 23);
+		contentPane.add(btnEnter);
+		
+		JLabel lblMuñeca = new JLabel("MU\u00D1ECA");
+		lblMuñeca.setBounds(10, 349, 54, 14);
+		contentPane.add(lblMuñeca);
+		
+		JLabel lblBrazo = new JLabel("BRAZO");
+		lblBrazo.setBounds(10, 162, 46, 14);
+		contentPane.add(lblBrazo);
+		
+		JLabel lblAntebrazo = new JLabel("ANTEBRAZO");
+		lblAntebrazo.setBounds(10, 380, 73, 14);
+		contentPane.add(lblAntebrazo);
+		
+		JLabel lblMuslo = new JLabel("MUSLO");
+		lblMuslo.setBounds(10, 187, 46, 14);
+		contentPane.add(lblMuslo);
+		
+		JLabel lblPantorrilla = new JLabel("PANTORRILLA");
+		lblPantorrilla.setBounds(0, 405, 73, 14);
+		contentPane.add(lblPantorrilla);
+		
+		JLabel lblCintura = new JLabel("CINTURA");
+		lblCintura.setBounds(10, 227, 60, 14);
+		contentPane.add(lblCintura);
+		
+		JLabel lblCadera = new JLabel("CADERA");
+		lblCadera.setBounds(193, 73, 54, 14);
+		contentPane.add(lblCadera);
+		
+		JLabel lblBiceps = new JLabel("BICEPS");
+		lblBiceps.setBounds(10, 252, 46, 14);
+		contentPane.add(lblBiceps);
+		
+		JLabel lblTriceps = new JLabel("TRICEPS");
+		lblTriceps.setBounds(193, 97, 54, 14);
+		contentPane.add(lblTriceps);
+		
+		JLabel lblSubescular = new JLabel("SUBESCULAR");
+		lblSubescular.setBounds(10, 283, 98, 14);
+		contentPane.add(lblSubescular);
+		
+		JLabel lblSupralico = new JLabel("SUPRAILICO");
+		lblSupralico.setBounds(174, 122, 73, 14);
+		contentPane.add(lblSupralico);
+		
+		CajaMuñeca = new JTextField();
+		CajaMuñeca.setBounds(118, 346, 46, 20);
+		contentPane.add(CajaMuñeca);
+		CajaMuñeca.setColumns(10);
+		
+		CajaBrazo = new JTextField();
+		CajaBrazo.setBounds(118, 159, 46, 20);
+		contentPane.add(CajaBrazo);
+		CajaBrazo.setColumns(10);
+		
+		CajaAntebrazo = new JTextField();
+		CajaAntebrazo.setBounds(118, 377, 46, 20);
+		contentPane.add(CajaAntebrazo);
+		CajaAntebrazo.setColumns(10);
+		
+		CajaMuslo = new JTextField();
+		CajaMuslo.setBounds(118, 187, 46, 20);
+		contentPane.add(CajaMuslo);
+		CajaMuslo.setColumns(10);
+		
+		CajaPantorrilla = new JTextField();
+		CajaPantorrilla.setBounds(118, 402, 46, 20);
+		contentPane.add(CajaPantorrilla);
+		CajaPantorrilla.setColumns(10);
+		
+		CajaCintura = new JTextField();
+		CajaCintura.setBounds(118, 218, 46, 20);
+		contentPane.add(CajaCintura);
+		CajaCintura.setColumns(10);
+		
+		CajaCadera = new JTextField();
+		CajaCadera.setBounds(253, 69, 46, 20);
+		contentPane.add(CajaCadera);
+		CajaCadera.setColumns(10);
+		
+		CajaBiceps = new JTextField();
+		CajaBiceps.setBounds(118, 249, 46, 20);
+		contentPane.add(CajaBiceps);
+		CajaBiceps.setColumns(10);
+		
+		CajaTriceps = new JTextField();
+		CajaTriceps.setBounds(253, 94, 46, 20);
+		contentPane.add(CajaTriceps);
+		CajaTriceps.setColumns(10);
+		
+		CajaSubescular = new JTextField();
+		CajaSubescular.setBounds(118, 280, 46, 20);
+		contentPane.add(CajaSubescular);
+		CajaSubescular.setColumns(10);
+		
+		CajaSuprailico = new JTextField();
+		CajaSuprailico.setBounds(253, 119, 46, 20);
+		contentPane.add(CajaSuprailico);
+		CajaSuprailico.setColumns(10);
+		
+		t1 = new JTextField();
+		t1.setEnabled(false);
+		t1.setBounds(584, 11, 86, 20);
+		contentPane.add(t1);
+		t1.setColumns(10);
+		
+		t2 = new JTextField();
+		t2.setEnabled(false);
+		t2.setBounds(584, 36, 86, 20);
+		contentPane.add(t2);
+		t2.setColumns(10);
+		
+		t3 = new JTextField();
+		t3.setEnabled(false);
+		t3.setBounds(584, 61, 86, 20);
+		contentPane.add(t3);
+		t3.setColumns(10);
+		
+		t4 = new JTextField();
+		t4.setEnabled(false);
+		t4.setBounds(584, 94, 86, 20);
+		contentPane.add(t4);
+		t4.setColumns(10);
+		
+		t5 = new JTextField();
+		t5.setEnabled(false);
+		t5.setBounds(526, 127, 86, 20);
+		contentPane.add(t5);
+		t5.setColumns(10);
+		
+		t6 = new JTextField();
+		t6.setEnabled(false);
+		t6.setBounds(584, 159, 86, 20);
+		contentPane.add(t6);
+		t6.setColumns(10);
+		
+		t7 = new JTextField();
+		t7.setEnabled(false);
+		t7.setBounds(584, 184, 86, 20);
+		contentPane.add(t7);
+		t7.setColumns(10);
+		
+		t8 = new JTextField();
+		t8.setEnabled(false);
+		t8.setBounds(584, 218, 86, 20);
+		contentPane.add(t8);
+		t8.setColumns(10);
+		
+		t9 = new JTextField();
+		t9.setEnabled(false);
+		t9.setBounds(584, 249, 86, 20);
+		contentPane.add(t9);
+		t9.setColumns(10);
+		
+		t10 = new JTextField();
+		t10.setEnabled(false);
+		t10.setBounds(584, 280, 86, 20);
+		contentPane.add(t10);
+		t10.setColumns(10);
+		
+		t11 = new JTextField();
+		t11.setEnabled(false);
+		t11.setBounds(584, 315, 86, 20);
+		contentPane.add(t11);
+		t11.setColumns(10);
+		
+		t12 = new JTextField();
+		t12.setEnabled(false);
+		t12.setBounds(584, 346, 86, 20);
+		contentPane.add(t12);
+		t12.setColumns(10);
+		
+		t13 = new JTextField();
+		t13.setEnabled(false);
+		t13.setBounds(584, 377, 86, 20);
+		contentPane.add(t13);
+		t13.setColumns(10);
+		
+		JLabel lblcm = new JLabel("ALTURA(cm)");
+		lblcm.setBounds(10, 137, 73, 14);
+		contentPane.add(lblcm);
+		
+		Cajacm = new JTextField();
+		Cajacm.setBounds(118, 127, 46, 20);
+		contentPane.add(Cajacm);
+		Cajacm.setColumns(10);
+		
+		lblNewLabel = new JLabel("IMC");
+		lblNewLabel.setBounds(456, 14, 46, 14);
+		contentPane.add(lblNewLabel);
+		
+		lblNewLabel_1 = new JLabel("Peso recomendado");
+		lblNewLabel_1.setBounds(456, 42, 118, 14);
+		contentPane.add(lblNewLabel_1);
+		
+		lblNewLabel_2 = new JLabel("Complexi\u00F3n f\u00EDsica ");
+		lblNewLabel_2.setBounds(456, 64, 118, 14);
+		contentPane.add(lblNewLabel_2);
+		
+		lblNewLabel_3 = new JLabel("Peso relativo");
+		lblNewLabel_3.setBounds(456, 97, 97, 14);
+		contentPane.add(lblNewLabel_3);
+		
+		lblNewLabel_4 = new JLabel("Peso saludable");
+		lblNewLabel_4.setBounds(418, 130, 98, 14);
+		contentPane.add(lblNewLabel_4);
+		
+		lblNewLabel_5 = new JLabel("5% del peso recomendado");
+		lblNewLabel_5.setBounds(418, 162, 156, 14);
+		contentPane.add(lblNewLabel_5);
+		
+		t51 = new JTextField();
+		t51.setEnabled(false);
+		t51.setBounds(641, 127, 86, 20);
+		contentPane.add(t51);
+		t51.setColumns(10);
+		
+		lblNewLabel_6 = new JLabel("A");
+		lblNewLabel_6.setBounds(622, 130, 16, 14);
+		contentPane.add(lblNewLabel_6);
+		
+		JLabel lblNewLabel_8 = new JLabel("Kg en grasa total");
+		lblNewLabel_8.setBounds(418, 187, 144, 14);
+		contentPane.add(lblNewLabel_8);
+		
+		JLabel lblNewLabel_9 = new JLabel("ICC");
+		lblNewLabel_9.setBounds(428, 221, 46, 14);
+		contentPane.add(lblNewLabel_9);
+		
+		JLabel lblNewLabel_10 = new JLabel("Sumatoria de 4 pliegues");
+		lblNewLabel_10.setBounds(418, 252, 156, 14);
+		contentPane.add(lblNewLabel_10);
+		
+		lblNewLabel_7 = new JLabel("%Grasa m\u00E1s o menos");
+		lblNewLabel_7.setBounds(418, 283, 135, 14);
+		contentPane.add(lblNewLabel_7);
+		
+		lblNewLabel_11 = new JLabel("Kg de grasa de m\u00E1s o menos");
+		lblNewLabel_11.setBounds(418, 318, 156, 14);
+		contentPane.add(lblNewLabel_11);
+		
+		lblNewLabel_12 = new JLabel("Masa magra");
+		lblNewLabel_12.setBounds(417, 349, 85, 14);
+		contentPane.add(lblNewLabel_12);
+		
+		lblNewLabel_13 = new JLabel("AMB");
+		lblNewLabel_13.setBounds(487, 376, 46, 14);
+		contentPane.add(lblNewLabel_13);
+		
+		JLabel lblNewLabel_14 = new JLabel("Peso ideal por brocca");
+		lblNewLabel_14.setBounds(418, 405, 119, 14);
+		contentPane.add(lblNewLabel_14);
+		
+		t14 = new JTextField();
+		t14.setEnabled(false);
+		t14.setBounds(584, 402, 86, 20);
+		contentPane.add(t14);
+		t14.setColumns(10);
+	}
+}
