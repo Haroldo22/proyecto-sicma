@@ -1,3 +1,4 @@
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.ImageIcon;
@@ -7,6 +8,7 @@ import javax.swing.border.EmptyBorder;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.Font;
@@ -74,7 +76,7 @@ public class IMCr extends JFrame {
 		contentPane = new FondoPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		getContentPane().setLayout(null);
+		contentPane.setLayout(null);
 		
 		JLabel lbl1 = new JLabel("IMC");
 		lbl1.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -112,12 +114,12 @@ public class IMCr extends JFrame {
 		lbl7.setBounds(10, 318, 180, 26);
 		contentPane.add(lbl7);
 		
-		JLabel lbl8 = new JLabel("%Grasa de m\u00E1s o menos");
+		JLabel lbl8 = new JLabel("%Grasa de mas o menos");
 		lbl8.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lbl8.setBounds(10, 349, 192, 26);
 		contentPane.add(lbl8);
 		
-		JLabel lbl9 = new JLabel("Kg de grasa de m\u00E1s  o menos");
+		JLabel lbl9 = new JLabel("Kg de grasa de mas  o menos");
 		lbl9.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lbl9.setBounds(303, 349,230, 26);
 		contentPane.add(lbl9);
@@ -139,7 +141,7 @@ public class IMCr extends JFrame {
 		lbl12.setBounds(303, 256, 154, 26);
 		contentPane.add(lbl12);
 		
-		JLabel lbl13 = new JLabel("Complexi\u00F3n F\u00EDsica");
+		JLabel lbl13 = new JLabel("Complexion Fisica");
 		lbl13.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lbl13.setBounds(303, 194, 185, 26);
 		contentPane.add(lbl13);
