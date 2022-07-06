@@ -23,17 +23,17 @@ public class DatosIMC extends JFrame {
 	private JPanel contentPane;
 	//Declarar una imagen para un Jlabel de fondo
 		FondoPanel fondo = new FondoPanel();
-		float peso, altura,alturacm, muslo, muñeca, brazo, antebrazo, pantorrilla, cintura, cadera, biceps,triceps, subescular, suprailico, estatura;
+		float peso, altura,alturacm, muslo, munheca, brazo, antebrazo, pantorrilla, cintura, cadera, biceps,triceps, subescular, suprailico, estatura;
 		int edad;
-		float IMC,PesoSaludableMax, PesoRecomendado,PesoIdealPorBrocca, ComplexionFisica, AreaMuscularBrazo, PesoRelativo, PesoSaludableMin, cincoporcientoDelPesoRecomendado,TotalDeGrasa, IndiceCinturaCadera, SumatoriaDeCuatroPliegues, PorDeMasOMenos, KgDeGrasaDeMasOMenos, MasaMagra;
+		float IMC,A, PesoRecomendado,PesoIdealPorBrocca, ComplexionFisica, AMB, PesoRelativo, PesoSaludable, cincoporcientoDelPesoRecomendado,TotalDeGrasa, ICC, SumatoriaDeCuatroPliegues, PorDeMasOMenos, KgDeGrasaDeMasOMenos, MasaMagra;
 		//variables redondeadas
-		float IMC1,PesoSaludableMax1, PesoRecomendado1,PesoIdealPorBrocca1, ComplexionFisica1, AreaMuscularBrazo1,IndiceCinturaCadera1, PesoRelativo1, PesoSaludableMin1, cincoporcientoDelPesoRecomendado1, SumatoriaDeCuatroPliegues1;
+		float IMC1,A1, PesoRecomendado1,PesoIdealPorBrocca1, ComplexionFisica1, AMB1,ICC1, PesoRelativo1, PesoSaludable1, cincoporcientoDelPesoRecomendado1, SumatoriaDeCuatroPliegues1;
 		String t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t51, t15, edad1;
 		
 	    public static JTextField CajaEdad;
 	    public static JTextField CajaPeso;
 	    public static JTextField CajaAltura;
-	    public static JTextField CajaMuñeca;
+	    public static JTextField CajaMunheca;
 	    public static JTextField CajaBrazo;
 	    public static JTextField CajaAntebrazo;
 	    public static JTextField CajaMuslo;
@@ -105,11 +105,11 @@ public class DatosIMC extends JFrame {
 		lblAltura.setBounds(42, 205, 132, 25);
 		contentPane.add(lblAltura);
 		
-		JLabel lblMuñeca = new JLabel("MU\u00D1ECA (mm)");
-		lblMuñeca.setForeground(Color.BLACK);
-		lblMuñeca.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblMuñeca.setBounds(42, 315, 138, 25);
-		contentPane.add(lblMuñeca);
+		JLabel lblMunheca = new JLabel("MU\u00D1ECA (mm)");
+		lblMunheca.setForeground(Color.BLACK);
+		lblMunheca.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblMunheca.setBounds(42, 315, 138, 25);
+		contentPane.add(lblMunheca);
 		
 		JLabel lblBrazo = new JLabel("BRAZO (mm)");
 		lblBrazo.setForeground(Color.BLACK);
@@ -177,7 +177,7 @@ public class DatosIMC extends JFrame {
 		lblcm.setBounds(42, 169, 142, 25);
 		contentPane.add(lblcm);
 		
-		JLabel lblNewLabel = new JLabel("INDICADORES ANTROPOM\u00C9TRICOS");
+		JLabel lblNewLabel = new JLabel("INDICADORES ANTROPOMETRICOS");
 		lblNewLabel.setFont(new Font("Malgun Gothic Semilight", Font.BOLD, 25));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setForeground(Color.BLACK);
@@ -232,10 +232,10 @@ public class DatosIMC extends JFrame {
 		contentPane.add(CajaAltura);
 		CajaAltura.setColumns(10); 
 		
-		CajaMuñeca = new JTextField();
-		CajaMuñeca.setBounds(168, 319, 46, 20);
-		contentPane.add(CajaMuñeca);
-		CajaMuñeca.setColumns(10);
+		CajaMunheca = new JTextField();
+		CajaMunheca.setBounds(168, 319, 46, 20);
+		contentPane.add(CajaMunheca);
+		CajaMunheca.setColumns(10);
 		
 		CajaBrazo = new JTextField();
 		CajaBrazo.setBounds(168, 355, 46, 20);
@@ -310,19 +310,19 @@ public class DatosIMC extends JFrame {
 				t2 = String.valueOf(PesoRecomendado1);
 				t3 = String.valueOf(ComplexionFisica1);
 				t4 = String.valueOf(PesoRelativo1);
-				t5 = String.valueOf(PesoSaludableMin1);
-				t51 = String.valueOf(PesoSaludableMax1);
+				t5 = String.valueOf(PesoSaludable1);
+				t51 = String.valueOf(A1);
 				t6 = String.valueOf(cincoporcientoDelPesoRecomendado1);
 				t7 = String.valueOf(TotalDeGrasa);
-				t8 = String.valueOf(IndiceCinturaCadera1);
+				t8 = String.valueOf(ICC1);
 				t9 = String.valueOf(SumatoriaDeCuatroPliegues1);
 				t10 = String.valueOf(PorDeMasOMenos);
 				t11 = String.valueOf(KgDeGrasaDeMasOMenos);
 				t12 = String.valueOf(MasaMagra);
-				t13 = String.valueOf(AreaMuscularBrazo1);
+				t13 = String.valueOf(AMB1);
 				t14 = String.valueOf(PesoIdealPorBrocca1);
 				edad1 = String.valueOf(edad);
-				JOptionPane.showMessageDialog(null, "Tu FOLIO es: " + crearFolio(), "Registro exitoso", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Tu ID es: " + crearID(), "Registro exitoso", JOptionPane.INFORMATION_MESSAGE);
 				//Abrir la ventana y cerra la actual 
 				new IMCr().setVisible(true);
 				dispose();
@@ -352,15 +352,15 @@ public class DatosIMC extends JFrame {
 			//Clase de herencia para JButton
 			private void operaciones() {
 				
-				IndiceCinturaCadera = cintura/cadera;
-				IndiceCinturaCadera1 = Math.round(IndiceCinturaCadera);
+				ICC = cintura/cadera;
+				ICC1 = Math.round(ICC);
 				SumatoriaDeCuatroPliegues = biceps+triceps+subescular+suprailico;
 				SumatoriaDeCuatroPliegues1 = Math.round(SumatoriaDeCuatroPliegues);
 				PorDeMasOMenos = 18*peso/100;
 				KgDeGrasaDeMasOMenos = peso*PorDeMasOMenos/100;
 				MasaMagra = (float) (peso-11.868);
-				AreaMuscularBrazo = (float) ((brazo-(3.1416*triceps))*((brazo-(3.1416*triceps)))/(3.1416*4));
-				AreaMuscularBrazo1 = Math.round(AreaMuscularBrazo);
+				AMB = (float) ((brazo-(3.1416*triceps))*((brazo-(3.1416*triceps)))/(3.1416*4));
+				AMB1 = Math.round(AMB);
 				PesoIdealPorBrocca = altura-100;
 				PesoIdealPorBrocca1 = Math.round(PesoIdealPorBrocca);
 				TotalDeGrasa = (float) ((12.9*peso)/100);
@@ -368,23 +368,23 @@ public class DatosIMC extends JFrame {
 				IMC1 = Math.round(IMC);
 				PesoRecomendado = alturacm*alturacm*24;
 				PesoRecomendado1 = Math.round(PesoRecomendado);
-				ComplexionFisica =altura/muñeca;
+				ComplexionFisica =altura/munheca;
 				ComplexionFisica1 = Math.round(ComplexionFisica);
 				PesoRelativo = peso/PesoRecomendado*100;
 				PesoRelativo1 = Math.round(PesoRelativo);
 				cincoporcientoDelPesoRecomendado = (float)(PesoRecomendado*0.05);
 				cincoporcientoDelPesoRecomendado1 = Math.round(cincoporcientoDelPesoRecomendado);
-				PesoSaludableMin = PesoRecomendado - cincoporcientoDelPesoRecomendado;
-				PesoSaludableMin1 = Math.round(PesoSaludableMin);
-				PesoSaludableMax = (PesoRecomendado) + (cincoporcientoDelPesoRecomendado);
-				PesoSaludableMax1 =Math.round(PesoSaludableMax);
+				PesoSaludable = PesoRecomendado - cincoporcientoDelPesoRecomendado;
+				PesoSaludable1 = Math.round(PesoSaludable);
+				A = (PesoRecomendado) + (cincoporcientoDelPesoRecomendado);
+				A1 =Math.round(A);
 				
 			}
 			private void cambioVariables() {
 				altura = Float.parseFloat(CajaAltura.getText());
 				peso = Float.parseFloat(CajaPeso.getText());
 				muslo = Float.parseFloat(CajaMuslo.getText());
-				muñeca = Float.parseFloat(CajaMuñeca.getText());
+				munheca = Float.parseFloat(CajaMunheca.getText());
 				brazo = Float.parseFloat(CajaBrazo.getText());
 				antebrazo = Float.parseFloat(CajaAntebrazo.getText());
 				altura = Float.parseFloat(CajaAltura.getText());
@@ -422,13 +422,13 @@ public class DatosIMC extends JFrame {
 		contentPane.add(AM);
 		AM.setColumns(10);
 		}
-	public static String crearFolio() {
+	public static String crearID() {
 
 		int numero = (int)(Math.random()*99999+10000);
 		
-		String folio = numero+"";
+		String ID = numero+"";
 		
-		return folio;
+		return ID;
 		
 		}
 }
